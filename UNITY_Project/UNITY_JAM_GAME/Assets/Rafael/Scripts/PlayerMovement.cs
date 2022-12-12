@@ -52,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
         movementDirection = new Vector3(h, 0, v);
         float movementLength = Mathf.Clamp(movementDirection.magnitude, 0f, 1f);
 
-        if (Input.GetKey(KeyCode.LeftShift) && stamina >= 0f)
+        if (Input.GetKey(KeyCode.LeftShift))
         {
             actuelSpeed = sprintSpeed;
             stamina -= staminaLost * Time.deltaTime;
