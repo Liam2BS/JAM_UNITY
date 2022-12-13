@@ -35,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
     //Components.
     private Camera cam;
     private CharacterController cc;
+    public Animator anim;
 
     void Start()
     {
@@ -57,15 +58,19 @@ public class PlayerMovement : MonoBehaviour
             actuelSpeed = sprintSpeed;
             stamina -= staminaLost * Time.deltaTime;
             if(stamina <= 0) { stamina = 0; }
+            anim.SetBool("sprint", true);
         }
         else
         {
             actuelSpeed = speed;
             stamina += staminaGain * Time.deltaTime;
             if (stamina >= 100) { stamina = 100; }
+            anim.SetBool("sprint", false);
+
         }
 
         movementDirection = transform.forward * movementLength * Time.deltaTime * actuelSpeed;
+        anim.SetFloat("speed", cc.velocity.magnitude);
 
         if(!cc.isGrounded)
         {

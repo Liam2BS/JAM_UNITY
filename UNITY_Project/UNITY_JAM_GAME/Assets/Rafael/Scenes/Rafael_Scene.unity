@@ -1059,6 +1059,7 @@ MonoBehaviour:
   staminaLost: 10
   staminaGain: 5
   lookAtSpeed: 10
+  anim: {fileID: 2099812151}
 --- !u!143 &791846774
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1143,6 +1144,23 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Mc_Game_Jam_For_Rig
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 077a52b5c98fe294abb9190f8ac33e6e,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: cdf4e4b1def75ab4599f3dccbee20693, type: 2}
+    - target: {fileID: 5866666021909216657, guid: 077a52b5c98fe294abb9190f8ac33e6e,
+        type: 3}
+      propertyPath: m_WarningMessage
+      value: "\nBinding warning: Some generic clip(s) animate transforms that are
+        already bound by a Humanoid avatar. These transforms can only be changed
+        by Humanoid clips.\n\tTransform 'mixamorig:Hips'\n\tTransform 'mixamorig:LeftFoot'\n\tTransform
+        'mixamorig:LeftHandThumb2'\n\tTransform 'mixamorig:LeftHandIndex1'\n\tTransform
+        'mixamorig:RightHandRing2'\n\tTransform 'mixamorig:Spine1'\n\tTransform 'mixamorig:LeftToeBase'\n\tTransform
+        'mixamorig:LeftHandThumb3'\n\tTransform 'mixamorig:RightArm'\n\tTransform
+        'mixamorig:LeftLeg'\n\tand more ...\n\tFrom animation clip 'mixamo.com'\n\tFrom
+        animation clip 'mixamo.com'"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 077a52b5c98fe294abb9190f8ac33e6e, type: 3}
@@ -2946,6 +2964,7 @@ MonoBehaviour:
   staminaLost: 10
   staminaGain: 5
   lookAtSpeed: 10
+  anim: {fileID: 0}
 --- !u!143 &1782994987
 CharacterController:
   m_ObjectHideFlags: 0
@@ -3132,6 +3151,12 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!95 &2099812151 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 077a52b5c98fe294abb9190f8ac33e6e,
+    type: 3}
+  m_PrefabInstance: {fileID: 808863728}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2101521031
 GameObject:
   m_ObjectHideFlags: 0
