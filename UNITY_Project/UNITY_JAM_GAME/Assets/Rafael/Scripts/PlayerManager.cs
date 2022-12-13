@@ -42,12 +42,17 @@ public class PlayerManager : MonoBehaviour
         if (other.gameObject.tag == "Poulet")
         {
             EatChicken(healthPerChicken);
-            GameObject.Destroy(other.gameObject);
+            other.GetComponent<Poulet>().Respawn();
+            other.GetComponent<Poulet>().Blood();
+            //GameObject.Destroy(other.gameObject);
         }
         if (other.gameObject.tag == "GoldenPoulet")
         {
             EatChicken(healthPerGoldenChicken);
-            GameObject.Destroy(other.gameObject);
+            //GameObject.Destroy(other.gameObject);
+            other.GetComponent<Poulet>().Respawn();
+            other.GetComponent<Poulet>().Blood();
+
         }
     }
 }
