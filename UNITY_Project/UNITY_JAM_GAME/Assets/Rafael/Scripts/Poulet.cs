@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.VFX;
 
 public class Poulet : MonoBehaviour
 {
     private NavMeshAgent agent;
+    public float walkRadius = 10f;
+    public VisualEffectAsset vfxBlood;
 
     // Start is called before the first frame update
     void Start()
@@ -18,14 +21,8 @@ public class Poulet : MonoBehaviour
     {
         if(!agent.hasPath)
         {
-            agent.SetDestination(RandomNavmeshLocation(10f));
+            agent.SetDestination(RandomNavmeshLocation(walkRadius));
         }
-    }
-
-    IEnumerator ChangePosition()
-    {
-        agent.SetDestination(RandomNavmeshLocation(10f));
-        yield return new WaitForSeconds(5f);
     }
 
     public Vector3 RandomNavmeshLocation(float radius)
@@ -39,5 +36,16 @@ public class Poulet : MonoBehaviour
             finalPosition = hit.position;
         }
         return finalPosition;
+    }
+
+    public void Respawn()
+    {
+        transform.position = RandomNavmeshLocation(50f);
+        agent.SetDestination(RandomNavmeshLocation(walkRadius));
+    }
+
+    public void Blood()
+    {
+        VisualEffectAsset obj = VisualEffectAsset.Instantiate(vfxBlood, transform);
     }
 }

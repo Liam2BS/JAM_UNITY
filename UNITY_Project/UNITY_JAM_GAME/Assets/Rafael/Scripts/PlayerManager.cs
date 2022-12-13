@@ -22,9 +22,10 @@ public class PlayerManager : MonoBehaviour
     public void UpgradeTier()
     {
         Debug.Log(health / (tier + 1));
-        if(health / (tier+1) >= 100)
+        if(health / (tier+1) >= 100 && tier <= 5)
         {
             tier++;
+            transform.parent.localScale = new Vector3(tier+1, tier+1, tier+1);
         }
     }
 
@@ -41,12 +42,17 @@ public class PlayerManager : MonoBehaviour
         if (other.gameObject.tag == "Poulet")
         {
             EatChicken(healthPerChicken);
-            GameObject.Destroy(other.gameObject);
+            other.GetComponent<Poulet>().Respawn();
+            other.GetComponent<Poulet>().Blood();
+            //GameObject.Destroy(other.gameObject);
         }
         if (other.gameObject.tag == "GoldenPoulet")
         {
             EatChicken(healthPerGoldenChicken);
-            GameObject.Destroy(other.gameObject);
+            //GameObject.Destroy(other.gameObject);
+            other.GetComponent<Poulet>().Respawn();
+            other.GetComponent<Poulet>().Blood();
+
         }
     }
 }
