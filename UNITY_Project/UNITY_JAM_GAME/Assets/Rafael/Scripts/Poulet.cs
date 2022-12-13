@@ -8,7 +8,7 @@ public class Poulet : MonoBehaviour
 {
     private NavMeshAgent agent;
     public float walkRadius = 10f;
-    public VisualEffectAsset vfxBlood;
+    public GameObject vfxBlood;
 
     // Start is called before the first frame update
     void Start()
@@ -40,12 +40,16 @@ public class Poulet : MonoBehaviour
 
     public void Respawn()
     {
-        transform.position = RandomNavmeshLocation(50f);
+        transform.position = RandomNavmeshLocation(100f);
         agent.SetDestination(RandomNavmeshLocation(walkRadius));
     }
 
     public void Blood()
     {
-        VisualEffectAsset obj = VisualEffectAsset.Instantiate(vfxBlood, transform);
+        GameObject vfx = GameObject.Instantiate(vfxBlood, transform.parent);
+        vfx.transform.position = transform.position;
+        vfx.transform.localScale = new Vector3(2,2,2);
+        vfx.GetComponent<VisualEffect>().Play();
+        Destroy(vfx, 3f);
     }
 }
