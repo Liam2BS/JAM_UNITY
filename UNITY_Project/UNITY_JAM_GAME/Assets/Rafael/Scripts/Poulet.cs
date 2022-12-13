@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class Poulet : MonoBehaviour
 {
     private NavMeshAgent agent;
+    public float walkRadius = 10f;
 
     // Start is called before the first frame update
     void Start()
@@ -18,14 +19,8 @@ public class Poulet : MonoBehaviour
     {
         if(!agent.hasPath)
         {
-            agent.SetDestination(RandomNavmeshLocation(10f));
+            agent.SetDestination(RandomNavmeshLocation(walkRadius));
         }
-    }
-
-    IEnumerator ChangePosition()
-    {
-        agent.SetDestination(RandomNavmeshLocation(10f));
-        yield return new WaitForSeconds(5f);
     }
 
     public Vector3 RandomNavmeshLocation(float radius)

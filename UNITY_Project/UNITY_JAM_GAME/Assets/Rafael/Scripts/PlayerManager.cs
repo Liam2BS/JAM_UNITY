@@ -22,9 +22,10 @@ public class PlayerManager : MonoBehaviour
     public void UpgradeTier()
     {
         Debug.Log(health / (tier + 1));
-        if(health / (tier+1) >= 100)
+        if(health / (tier+1) >= 100 && tier <= 5)
         {
             tier++;
+            transform.parent.localScale = new Vector3(tier+1, tier+1, tier+1);
         }
     }
 
