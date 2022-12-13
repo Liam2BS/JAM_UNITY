@@ -16,7 +16,10 @@ public class Poulet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        StartCoroutine(ChangePosition());
+        if(!agent.hasPath)
+        {
+            agent.SetDestination(RandomNavmeshLocation(10f));
+        }
     }
 
     IEnumerator ChangePosition()
