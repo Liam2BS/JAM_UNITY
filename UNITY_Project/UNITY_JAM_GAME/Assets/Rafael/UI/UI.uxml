@@ -1,0 +1,4 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/Rafael/UI/UI.uss?fileID=7433441132597879392&amp;guid=6cfc49fe7f5f0b4479eefc0a4740b56c&amp;type=3#UI" />
+    <ui:ProgressBar name="HealPoint" view-data-key="HPoints" high-value="100" style="flex-basis: 100px; width: 100px; height: auto;" />
+</ui:UXML>

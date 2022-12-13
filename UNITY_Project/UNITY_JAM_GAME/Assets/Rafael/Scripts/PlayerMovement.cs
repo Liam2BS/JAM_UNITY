@@ -25,7 +25,8 @@ public class PlayerMovement : MonoBehaviour
     //Stamina
     public float stamina = 100;
     public float staminaLost = 10;
-    public float staminaGain = 5;
+    public float staminaGain = 50;
+    private bool canSprint = true;
 
     //Rotation variables.
     public float lookAtSpeed = 10f;
@@ -48,16 +49,17 @@ public class PlayerMovement : MonoBehaviour
         h = Input.GetAxis("Horizontal");
         v = Input.GetAxis("Vertical");
         mousePos = Input.mousePosition;
+        anim.SetFloat("stamina", stamina);
 
         //Movement
         movementDirection = new Vector3(h, 0, v);
         float movementLength = Mathf.Clamp(movementDirection.magnitude, 0f, 1f);
 
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift) && stamina >= 0 && canSprint)
         {
             actuelSpeed = sprintSpeed;
             stamina -= staminaLost * Time.deltaTime;
-            if(stamina <= 0) { stamina = 0; }
+            if(stamina <= 0) { stamina = 0; canSprint = false; }
             anim.SetBool("sprint", true);
         }
         else
@@ -65,6 +67,7 @@ public class PlayerMovement : MonoBehaviour
             actuelSpeed = speed;
             stamina += staminaGain * Time.deltaTime;
             if (stamina >= 100) { stamina = 100; }
+            if(stamina >= 10) { canSprint = true; }
             anim.SetBool("sprint", false);
 
         }

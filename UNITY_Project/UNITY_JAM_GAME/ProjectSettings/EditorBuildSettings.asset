@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/Rafael/Scenes/Main Menu.unity
+    guid: 4cd38c7056d24264cad85cddbefc44f3
+  - enabled: 1
+    path: Assets/Rafael/Scenes/Rafael_Scene.unity
+    guid: e3bda5b47f6d9194cb4fc1f770087f62
   m_configObjects: {}
